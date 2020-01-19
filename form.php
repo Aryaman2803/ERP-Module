@@ -4,7 +4,9 @@
     <head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Research Form</title>
-		<link rel="stylesheet" href="./css/form.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="./css/form.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
@@ -19,9 +21,8 @@
 		<form action="" method="POST">
 			<fieldset style="background-color:#AFEEEE">
 			<legend class= "bfont">General Information</legend>
-				<div class="centerdiv" align="center">Title:<br><textarea rows="4" cols="100" name="title"> </textarea></div>
+				<div class="centerdiv" align="center">Title:<br><textarea rows="4" cols="100" name="title"></textarea><p id="p1"></p></i></span></div>
 				<div class="leftdiv">Authors:<input type="text" name = "authors"></div>
-
 				<div class="middlediv">Department:
 					<select name="department" id="department">
 						<option value="Computer Application">Computer Application</option>
@@ -113,6 +114,19 @@
 				</div>
 			</fieldset>
 		</form>
+    <script type="text/javascript">
+      var title = "<?php echo(SELECT * from data WHERE title=104)?>";
+      var inputVal = document.getElementById("title").value;
+      var inputVall = "inputVal";
+      if(title !== inputVall){
+      document.getElementById("p1").innerHTML = "&#9989;";
+      document.getElementById("submit").disabled = false;
+      }
+      else{
+      document.getElementById("p1").innerHTML = "&#10062;";
+      document.getElementById("submit").disabled = true;
+      }
+    </script>
 		<?php
 			if(isset($_POST['submit']))
 			{
