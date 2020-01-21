@@ -3,45 +3,9 @@
    <head>
       <title>ResearchPortal</title>
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <style>
-			* {
-			  box-sizing: border-box;
-			}
-
-			.header {
-			  background-color:#022251;
-			  padding:15px;
-			}
-
-			.info {
-			  width: 35%;
-			  float: left;
-			  background-color:#022251;
-			  padding:15px;
-			  color:white;
-			}
-
-			.main {
-			  width: 30%;
-			  float: left;
-			  padding:15px;
-			  color:white;
-			}
-			.box {
-			  border:#666666 solid 1px;
-			  font-size:14px;
-			}
-			label {
-				font-weight:bold;
-				width:100px;
-				font-size:20px;
-			}
-			body{
-				bgcolor:#CACFD2;
-			}
-		</style>
+	  <link rel="stylesheet" href="./css/login.css">
 	</head>
-	<body background="login1.jpg">
+	<body background="./img/login1.jpg">
 		<?php
       require('connection.php');
       session_start();
@@ -59,9 +23,9 @@
 				$row = mysqli_fetch_row($result);
 				if($row[0] == $_POST['loginid'] && $row[1] == $_POST['password'])
 				{
-					$_SESSION['sapid'] = $_POST['loginid'];
-					$_SESSION['desig'] = $row[2];
-					$_SESSION['dep'] = $row[3];
+					$_SESSION['sapid'] = $_POST['loginid'];  //sapid fetch
+					$_SESSION['desig'] = $row[2];            //designation fetch
+					$_SESSION['dep'] = $row[3];              //department fetch
 					header("location:dashboard.php");
 				}
 				else

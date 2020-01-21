@@ -27,8 +27,9 @@ function filter()
 <body onload="applyfilter();">
 <?php
 session_start();
-$tab = $_GET['tab'];
-$_SESSION['tab'] = $tab;
+$desig = $_SESSION['desig'];
+$index = $_GET['index'];
+$tab = $_SESSION['tab'];
 $sap = $_SESSION["sapid"];
 $dep = $_SESSION["dep"];
 $mon=array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
@@ -103,7 +104,7 @@ Remarks:<select name="remarks" id="remarks">
 <script>
 function applyfilter()
 {
-
+	var index = "<?php echo $index; ?>";
 	document.getElementById("filter").style.display = "none";
 	var name_element = document.getElementById("name")
 	if(name_element)
